@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D 2024</title>
+    <link rel="stylesheet" href="./navigation.css" />
+
+    <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/solid.css" rel="stylesheet" />
+
+    <style>
+      @font-face {
+        font-family: "Verdana";
+        src: url(./assets/fonts/verdana-font-family/verdana.ttf);
+        font-style: normal;
+        font-weight: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, sans-serif;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --ColorTitre: #42585d;
+        --ColorFoot: #ddad7c;
+        --ColorFont: #dfdbda;
+        --ColotrTexte: #899496;
+      }
+
+      main {
+        display: flex;
+        height: 30rem;
+      }
+
+      .menu {
+        width: 22%;
+        background-color: var(--ColorFont);
+        padding: 10px;
+        border-right: 2px solid black;
+        transition: width 0.3s ease;
+        position: relative;
+        height: 50%;
+      }
+
+      .men1 {
+        position: absolute;
+        top: 35px;
+      }
+
+      .menu.collapsed {
+        width: 5%; /* Réduit la largeur du menu */
+      }
+
+      .menu-button {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: none;
+        cursor: pointer;
+        border: none; /* Supprime la bordure */
+        outline: none;
+        gap: 20px;
+      }
+
+      .menu-button .icon {
+        font-size: 1.5em;
+        margin-right: 10px;
+      }
+
+      .menu-button .name {
+        display: inline;
+        transition: opacity 0.3s ease;
+      }
+
+      .menu.collapsed .menu-button .name {
+        opacity: 0; /* Cache le texte dans le mode réduit */
+        visibility: hidden;
+      }
+
+      .menu-toggle {
+        background-color: var(--ColorFont);
+        border: none;
+        cursor: pointer;
+      }
+
+      .content {
+        width: 85%;
+        padding-left: 20px;
+        background-color: var(--ColorFont);
+        position: relative;
+      }
+      h2 {
+        margin-bottom: 20px;
+        color: var(--ColorTitre);
+      }
+
+      .content-section2 {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        margin: 1px;
+      }
+
+      .content-section {
+        visibility: visible;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* ============================================ */
+
+      .ws1 {
+        margin-bottom: 10px;
+        padding: 0 10px 10px 15px;
+        font-size: 24px;
+      }
+
+      .ws {
+        float: right;
+      }
+
+      /* Espacement entre les boutons */
+      .menu-buttons {
+        display: flex;
+        flex-direction: row; /* Aligne les boutons horizontallement */
+        gap: 5px; /* Ajoute un espace de 15px entre chaque bouton */
+        border: none; /* Supprime la bordure */
+        outline: none;
+      }
+
+      #btn1 {
+        border: none; /* Supprime la bordure */
+        outline: none;
+        font-size: 16px;
+      }
+      #btn2 {
+        border: none; /* Supprime la bordure */
+        outline: none;
+        font-size: 16px;
+      }
+
+      .menu-buttons .button1 {
+        display: none; /* Masque les boutons par défaut */
+      }
+
+      .menu-buttons .button1.visible {
+        display: block; /* Affiche les boutons lorsqu'ils sont visibles */
+      }
+      .button1 {
+        /* margin-top: 10px; */
+        background: var(--ColorFont);
+        cursor: pointer;
+      }
+
+      /* Effet hover pour tous les boutons */
+      .button1:hover {
+        /* background-color: #390391; */
+        color: var(--ColorFoot);
+      }
+
+      /* Style pour le bouton actif */
+      .button1.active {
+        background-color: var(--ColorFoot);
+        color: var(--ColorTitre);
+        border-radius: 8px; /* Ajout de radius */
+        transition: border-radius 0.3s ease; /* Animation douce pour le radius */
+        padding: 2px;
+      }
+      .icon1 {
+        cursor: pointer;
+      }
+      .icon1:hover {
+        color: var(--ColorFoot);
+      }
+      .icon1.active {
+        color: var(--ColorTitre);
+      }
+
+      .menu.collapsed {
+        width: 5%;
+        background-color: var(--ColorFont);
+        padding: 0; /* Réduire les marges internes */
+      }
+
+      .menu.collapsed .menu-buttons {
+        display: none; /* Masquer les boutons dynamiques */
+      }
+
+      .men1 {
+        visibility: hidden;
+      }
+
+      .content1 h2 {
+        top: 0;
+      }
+
+      /* =================================Footer=============================== */
+
+      .foot {
+        min-height: 90px;
+        width: 100%;
+        background: var(--ColorFoot);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 12px;
+      }
+
+      .tit1 {
+        margin-bottom: 20px;
+        color: var(--ColorTitre);
+      }
+      .tit {
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        color: var(--ColorTitre);
+      }
+      .contenujs {
+        margin-left: 60px;
+        font-size: 24px;
+        color: var(--ColorTitre);
+      }
+      .ctnt {
+        font-size: 24px;
+        color: var(--ColorTitre);
+      }
+
+      .icon1 {
+        display: flex; /* Utilise flexbox */
+        justify-content: center; /* Centre horizontalement */
+        align-items: center; /* Centre verticalement */
+        width: 30px; /* Taille du cercle */
+        height: 30px; /* Taille du cercle */
+        border: 2px solid black; /* Bordure pour créer le cercle */
+        border-radius: 50%; /* Cercle parfait */
+        font-size: 16px; /* Taille du texte */
+        line-height: 1; /* Assure un centrage précis */
+        text-align: center; /* Centre le texte à l'intérieur */
+        padding: 0;
+      }
+
+      .align {
+        margin-bottom: 24px;
+      }
+
+      @media screen and (max-width: 470px) {
+        .menu.collapsed {
+          width: 15%;
+        }
+
+        .spa {
+          width: 100%;
+          height: 30px;
+        }
+        .spacer {
+          width: 100%;
+          height: 24.5rem;
+        }
+        .menu-buttons {
+          display: flex;
+          flex-direction: column;
+        }
+        #btn1 {
+          font-size: 0.5rem;
+        }
+        #btn2 {
+          font-size: 0.5rem;
+        }
+
+        .menu-button .name {
+          visibility: hidden;
+        }
+        .tit1 {
+          font-size: 1rem;
+        }
+        .tit {
+          font-size: 1rem;
+        }
+        .ctnt {
+          font-size: 1rem;
+        }
+        h2 {
+          font-size: 1rem;
+        }
+        .contenujs {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color: #dfdbda">
+    <header class="ContainerOne">
+      <div class="logo-navbar-container">
+        <div class="logo">
+          <a href="./projet.html"
+            ><img src="./assets/logo/logo.svg" class="logo" alt="logo"
+          /></a>
+        </div>
+
+        <div class="navbar" id="navbar">
+          <!-- Premier bouton Dropdown 1 -->
+          <div class="dropdown1">
+            <button
+              class="dropbtn1"
+              onclick="window.location.href='categorieA.html';"
+            >
+              A
+            </button>
+          </div>
+
+          <!-- Deuxième bouton Dropdown -->
+          <div class="dropdown1">
+            <button
+              class="dropbtn1"
+              onclick="window.location.href='categorieB.html';"
+            >
+              B
+            </button>
+          </div>
+
+          <!-- Troisième bouton Dropdown -->
+          <div class="dropdown1">
+            <button
+              class="dropbtn1"
+              onclick="window.location.href='categorieD.html';"
+            >
+              D
+            </button>
+          </div>
+
+          <!-- Quatrième bouton Dropdown -->
+          <div class="dropdown1">
+            <button
+              class="dropbtn1"
+              onclick="window.location.href='categorieE.html';"
+            >
+              E
+            </button>
+          </div>
+
+          <!-- Cinquième bouton Dropdown -->
+          <div class="dropdown1">
+            <button
+              class="dropbtn1"
+              onclick="window.location.href='categorieF.html';"
+            >
+              F
+            </button>
+          </div>
+          <div class="links">
+            <div class="icon" id="menu-icon">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ==============================================================================
+          ============================================================================== -->
+
+        <div class="hidery">
+          <a href="./projet.html">
+            <img src="./assets/logo/logo.svg" class="logo1" alt="logo" />
+          </a>
+          <div class="navbarVertico">
+            <!-- ======================Ajoutez du boutons A======================== -->
+            <div class="dropdownVertico">
+              <button
+                class="dropbtnVertico"
+                id="buttonA"
+                onclick="window.location.href='categorieA.html';"
+              >
+                A
+              </button>
+            </div>
+
+            <!-- ======================Ajoutez du boutons B======================== -->
+            <div class="dropdownVertico">
+              <button
+                class="dropbtnVertico"
+                id="buttonB"
+                onclick="window.location.href='categorieB.html';"
+              >
+                B
+              </button>
+            </div>
+            <!-- ======================Ajoutez du boutons D======================== -->
+            <div class="dropdownVertico">
+              <button
+                class="dropbtnVertico"
+                onclick="window.location.href='categorieD.html';"
+                id="buttonD"
+              >
+                D
+              </button>
+            </div>
+            <!-- ======================Ajoutez du boutons E======================== -->
+            <div class="dropdownVertico">
+              <button
+                class="dropbtnVertico"
+                id="buttonE"
+                onclick="window.location.href='categorieE.html';"
+              >
+                E
+              </button>
+            </div>
+            <!-- ======================Ajoutez du boutons F======================== -->
+            <div class="dropdownVertico">
+              <button
+                class="dropbtnVertico"
+                id="buttonF"
+                onclick="window.location.href='categorieF.html';"
+              >
+                F
+              </button>
+            </div>
+          </div>
+          <div
+            class="icon"
+            id="menu-icon1"
+            onclick="window.location.href='projetAuth.html';"
+          >
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="spa"></div>
+
+    <main>
+      <div class="menu collapsed">
+        <!-- Boutons de contrôle du menu -->
+        <button id="expand-menu" class="menu-toggle ws1">☰</button>
+        <div class="align">
+          <button id="collapse-menu" class="menu-toggle hidden ws button1">
+            X
+          </button>
+
+          <!-- Boutons dynamiques -->
+          <div class="menu-buttons">
+            <button class="button1" id="btn1">FANOMANANA</button>
+            <button class="button1" id="btn2">FANENTERANA</button>
+          </div>
+        </div>
+
+        <div class="men">
+          <button name="D1mavo" class="menu-button">
+            <span class="icon1 btnHover">1</span>
+            <span class="name btnHover">Mavo</span>
+          </button>
+          <button name="D1maitso" class="menu-button">
+            <span class="icon1 btnHover">2</span>
+            <span class="name btnHover">Maitso</span>
+          </button>
+          <button name="D1mena" class="menu-button">
+            <span class="icon1 btnHover">3</span>
+            <span class="name btnHover">Mena</span>
+          </button>
+          <button name="D1menafify" class="menu-button">
+            <span class="icon1 btnHover">4</span>
+            <span class="name btnHover">Menafify</span>
+          </button>
+        </div>
+        <div class="men1">
+          <button name="D2mavo" class="menu-button me1">
+            <span class="icon1 btnHover">1</span>
+            <span class="name btnHover">Mavo</span>
+          </button>
+          <button
+            name="D2maitso"
+            class="menu-button me1"
+            data-content="content2"
+          >
+            <span class="icon1 btnHover">2</span>
+            <span class="name btnHover">Maitso</span>
+          </button>
+          <button name="D2mena" class="menu-button me1">
+            <span class="icon1 btnHover">3</span>
+            <span class="name btnHover">Mena</span>
+          </button>
+          <button name="D2menafify" class="menu-button me1">
+            <span class="icon1 btnHover">4</span>
+            <span class="name btnHover">Menafify</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="content" style="background-color: #dfdbda">
+        <div id="content1" class="content-section">
+          <h2>Bienvenue dans le contenu FANOMANANA D</h2>
+
+          <p class="ctnt">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+            doloribus veniam voluptatibus blanditiis accusamus esse autem quae
+            placeat? Rem exercitationem, voluptatibus nulla nobis aliquid id
+            iusto qui illum doloremque enim. Id ratione labore praesentium
+            recusandae molestiae, pariatur, facilis blanditiis alias repudiandae
+            suscipit et. D1
+          </p>
+        </div>
+        <div id="content2" class="content-section2">
+          <h2>Bienvenue dans le contenu FANENTERANA D</h2>
+          <p class="ctnt">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+            doloribus veniam voluptatibus blanditiis accusamus esse autem quae
+            placeat? Rem exercitationem, voluptatibus nulla nobis aliquid id
+            iusto qui illum doloremque enim. Id ratione labore praesentium
+            recusandae molestiae, pariatur, facilis blanditiis alias repudiandae
+            suscipit et. D2
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <div class="spacer"></div>
+
+    <footer class="foot">
+      <h4>Besoin d'aide !</h4>
+      <p>Copyright@2025</p>
+      <div class="iconfooter">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-facebook-messenger"></i>
+        <i class="fa-brands fa-square-whatsapp"></i>
+      </div>
+    </footer>
+
+    <script>
+      // Sélectionner les éléments
+      const menu = document.querySelector(".menu");
+      const expandButton = document.getElementById("expand-menu");
+      const collapseButton = document.getElementById("collapse-menu");
+
+      // Gestionnaire pour étendre le menu
+      expandButton.addEventListener("click", () => {
+        menu.classList.remove("collapsed"); // Enlève la classe qui réduit le menu
+        expandButton.classList.add("hidden"); // Cache le bouton "Agrandir"
+        collapseButton.classList.remove("hidden"); // Affiche le bouton "Réduire"
+      });
+
+      // Gestionnaire pour réduire le menu
+      collapseButton.addEventListener("click", () => {
+        menu.classList.add("collapsed"); // Ajoute la classe pour réduire le menu
+        collapseButton.classList.add("hidden"); // Cache le bouton "Réduire"
+        expandButton.classList.remove("hidden"); // Affiche le bouton "Agrandir"
+      });
+
+      //   ================================================================
+
+      // Sélection des éléments
+      const menu1 = document.querySelector(".menu");
+      const expandMenu = document.getElementById("expand-menu");
+      const collapseMenu = document.getElementById("collapse-menu");
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      const menuButtons = document.querySelector(".menu-buttons");
+
+      // Fonction pour ajuster l'ordre des boutons et leur visibilité
+      function adjustButtonVisibility() {
+        if (!collapseMenu.classList.contains("hidden")) {
+          btn1.classList.add("visible");
+          btn2.classList.add("visible");
+        } else {
+          btn1.classList.remove("visible");
+          btn2.classList.remove("visible");
+        }
+      }
+
+      // Gestionnaire pour étendre le menu
+      expandMenu.addEventListener("click", () => {
+        menu1.classList.remove("collapsed");
+        expandMenu.classList.add("hidden");
+        collapseMenu.classList.remove("hidden");
+        adjustButtonVisibility();
+      });
+
+      // Gestionnaire pour réduire le menu
+      collapseMenu.addEventListener("click", () => {
+        menu1.classList.add("collapsed");
+        collapseMenu.classList.add("hidden");
+        expandMenu.classList.remove("hidden");
+        adjustButtonVisibility();
+      });
+
+      // Initialisation
+      adjustButtonVisibility();
+
+      // ===========================================
+
+      const bt1 = document.getElementById("btn1");
+      const bt2 = document.getElementById("btn2");
+      const fanomanana = document.querySelector(".content-section");
+      const fanenterana = document.querySelector(".content-section2");
+
+      const fano = document.querySelector(".men");
+      const fanen = document.querySelector(".men1");
+
+      bt1.addEventListener("click", () => {
+        fanomanana.style.visibility = "visible";
+        fanenterana.style.visibility = "hidden";
+
+        fanen.style.visibility = "hidden";
+        fano.style.visibility = "visible";
+      });
+      bt2.addEventListener("click", () => {
+        fanenterana.style.visibility = "visible";
+        fanomanana.style.visibility = "hidden";
+
+        fano.style.visibility = "hidden";
+        fanen.style.visibility = "visible";
+      });
+
+      // =======================================================
+
+      // Contenu injecté en fonction des boutons
+      const contentData = {
+        D1mavo: {
+          title: "MAVO D1",
+          title1:
+            "Manatrika fivorian'ny Andiany iray hafa fivondronana ijerena ny :",
+          listes1: [
+            "Fomba fampivoriana.",
+            "Fizotran'ny fivoriana.",
+            "Ireo tokony ho hita mandritra ny fivoriana iray.Tantaran’ny atiala.",
+            "Fampiasana fisy teknika.",
+          ],
+        },
+        D1maitso: {
+          title: "MAITSO D1",
+          title1:
+            "Mdinika miaraka amin'ny Filoha araka ireto lohahevitra ireto :",
+          listes1: [
+            "Fahafantarana ny sampana Maitso. ",
+            "Ny sokajy, ny fomba sy tarazo.",
+            "Fitsinjarana eo amin'ny Mpiandraikitra antoko.",
+            "Fandrarahana.",
+            "Fianarana taknika skoto.",
+            "Fianarana taknika skoto.",
+            "Fananganana fandaharana sampana.",
+            "Fitsidihana ray aman-dreny. ",
+            "Fifaninana teknika. ",
+            "Ny lalana sy fanekena.",
+          ],
+        },
+        D1mena: {
+          title: "MENA D1",
+          title1:
+            "Manatrika fivorian'ny fileovana sy/na fonkonolona iray hafa fivondronana  ijerena ny :",
+          listes1: [
+            "Fomba fampivoriana.",
+            "Fizotran'ny fivoriana. ",
+            " Ireo tokony ho hita mandritra ny fivoriana iray.",
+            " Ireo tokony ho hita mandritra ny fivoriana iray.",
+          ],
+        },
+        D1menafify: {
+          title: "MENAFIFY D1",
+          title1:
+            "Manatrika fivorian'ny fileovana sy/na fonkonolona iray hafa fivondronana  ijerena ny:",
+          listes1: [
+            "Fomba fampivoriana.",
+            "Fizotran'ny fivoriana.",
+            "Ireo tokony ho hita mandritra ny fivoriana iray.",
+            "Fampiasana fisy teknika.",
+          ],
+        },
+        D2mavo: {
+          title: "MAVO D2",
+          title1:
+            "Manatrika hetsika sy/na fivorian'ny Andiany iray hafa fivondronana hanatanterahana :",
+          listes1: [
+            "Fisy teknika manaraka fandaharana.",
+
+            "Mizara traik'efa amin'ny:",
+            "  - Fomba fitarihana hetsika sy/na fampivoriana. ",
+            "- Fizotran'ny hetsika sy/na fivoriana. ",
+            "- Ireo tokony ho hita mandritra ny fivoriana iray.",
+            "- Fandrafetana fisy teknika.",
+            "- Fanaovana tomban'ezaky ny hetsika sy na/ fivoriana.",
+          ],
+        },
+        D2maitso: {
+          title: "MAITSO D2",
+          title1:
+            "Manatrika hetsika sy/na fivorian'ny Andiany iray hafa fivondronana hanatanterahana :",
+          listes1: [
+            "Fisy teknika manaraka fandaharana.",
+
+            "Mizara traik'efa amin'ny:",
+            "  - Fomba fitarihana hetsika sy/na fampivoriana. ",
+            "- Fizotran'ny hetsika sy/na fivoriana. ",
+            "- Ireo tokony ho hita mandritra ny fivoriana iray.",
+            "- Fandrafetana fisy teknika.",
+            "- Fanaovana tomban'ezaky ny hetsika sy na/ fivoriana.",
+          ],
+        },
+        D2mena: {
+          title: "MENA D2",
+          title1:
+            "Manatrika hetsika sy/na fivorian'ny fileovana sy/na fonkonolona iray hafa  fivondronana hanatanterahana:",
+          listes1: [
+            "Fisy teknika manaraka fandaharana.",
+            "Mizara traik'efa amin'ny:",
+            "- Fomba fitarihana hetsika sy/na fampivoriana.",
+            "- Fizotran'ny hetsika sy/na fivoriana.",
+            "- Ireo tokony ho hita mandritra ny fivoriana iray.",
+            "- fandrafetana fisy teknika amin'ny fivoriana sy/na hetsika iray.",
+            "- Fanaovana tomban'ezaky ny hetsika sy na/ fivoriana iray.",
+          ],
+        },
+        D2menafify: {
+          title: "MENAFIFY D2",
+          title1:
+            "Manatrika hetsika sy/na fivorian'ny fileovana sy/na fonkonolona iray hafa  fivondronana hanatanterahana :",
+          listes1: [
+            "Fisy teknika manaraka fandaharana.",
+            "Mizara traik'efa amin'ny:",
+            "- Fomba fitarihana hetsika sy/na fampivoriana.",
+            "- Fizotran'ny hetsika sy/na fivoriana. ",
+            "- Ireo tokony ho hita mandritra ny fivoriana iray.",
+            "- fandrafetana fisy teknika amin'ny fivoriana sy/na hetsika iray.",
+            "- Fanaovana tomban'ezaky ny hetsika sy na/ fivoriana iray.",
+          ],
+        },
+      };
+
+      // Fonction pour générer le contenu HTML à partir des données
+      const generateContent = (key) => {
+        const data = contentData[key];
+        if (!data) return ""; // Si aucune donnée trouvée, retourner une chaîne vide
+
+        // Créer l'HTML à afficher
+        const listHTML = data.listes1
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+        return `
+    <h1 class="tit">${data.title}</h1>
+    <h2 class="tit1">${data.title1}</h2>
+    <ul class="contenujs">${listHTML}</ul>
+  `;
+      };
+
+      // Ajouter l'événement de clic aux boutons
+      document.querySelectorAll(".menu-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const key = event.target.closest("button").name; // Récupérer le nom du bouton
+          const content = generateContent(key); // Générer le contenu pour ce bouton
+
+          // Mettre à jour le contenu du conteneur principal
+          document.getElementById("content1").innerHTML = content;
+        });
+      });
+
+      // Ajouter l'événement de clic aux boutons
+      document.querySelectorAll(".me1").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const key = event.target.closest("button").name; // Récupérer le nom du bouton
+          const content = generateContent(key); // Générer le contenu pour ce bouton
+
+          // Mettre à jour le contenu du conteneur principal
+          document.getElementById("content2").innerHTML = content;
+        });
+      });
+
+      // ==================Hover des boutons==================
+      // Sélectionne tous les boutons
+      const buttons = document.querySelectorAll(".button1");
+
+      // Ajoute un écouteur d'événement pour chaque bouton
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Supprime la classe active de tous les boutons
+          buttons.forEach((btn) => btn.classList.remove("active"));
+          // Ajoute la classe active au bouton cliqué
+          button.classList.add("active");
+        });
+      });
+      // Sélectionne tous les boutons
+      const buttons1 = document.querySelectorAll(".icon1");
+
+      // ================Sélectionne l'élément par son ID===================
+      document
+        .getElementById("menu-icon")
+        .addEventListener("click", function () {
+          // Redirige vers la page projetInscri.html
+          window.location.href = "./projetAuth.html";
+        });
+    </script>
+  </body>
+</html>
