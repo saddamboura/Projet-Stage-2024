@@ -4,18 +4,12 @@
   font-style: normal;
   font-weight: normal;
 }
-
+/* Réinitialisation de base */
 * {
-  padding: 0;
   margin: 0;
-  font-family: Verdana, sans-serif;
+  padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--ColorFont);
+  font-family: "Verdana", Arial, sans-serif;
 }
 
 :root {
@@ -24,86 +18,61 @@ body {
   --ColorFont: #dfdbda;
   --ColotrTexte: #899496;
 }
-
-/* =================================Main=============================== */
-
-.main {
-  min-height: 300px;
-  border-radius: 16px 16px 16px 0;
-  border: 2px solid var(--ColorFoot);
+body {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  min-height: 100vh; /* Hauteur de la fenêtre */
+  margin: 0; /* Supprime les marges par défaut */
 }
 
-.section1 {
-  min-height: 300px;
-  /* border-radius: 16px 16px 16px 16px;
-  border: 2px solid var(--ColorTitre); */
-  margin: 0 20px;
-  display: grid;
-  grid-template-columns: 30% 70%;
+main {
+  flex: 1; /* Prend tout l'espace restant dans la page */
+  display: flex; /* Active Flexbox */
+  flex-direction: column; /* Place les enfants en colonne */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  text-align: center; /* Centre le texte des enfants */
+  gap: 20px; /* Espacement entre les éléments */
+  padding: 20px 100px 20px 100px; /* Espacement intérieur */
+  min-height: 70vh; /* Hauteur minimale de 70% de la fenêtre visible */
 }
 
-.section1 img {
-  width: 90%;
-  margin-top: 10px;
-  margin-left: 20px;
+h1,
+h2,
+p {
+  margin: 0; /* Supprime les marges par défaut */
+  color: var(--ColorTitre);
 }
 
-.sect1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
+h1 {
+  font-size: 1.25rem;
 }
 
-.sect1 p {
-  margin: 0 54px;
+p,
+h2 {
+  font-size: 1rem;
 }
 
-.section2 {
-  min-height: 300px;
-  /* border-radius: 16px 16px 16px 16px;
-  border: 2px solid var(--ColorTitre); */
-  margin: 0 20px;
-  margin: 0 20px;
-  display: grid;
-  grid-template-columns: 70% 30%;
+.button-container {
+  display: flex; /* Utilise Flexbox pour les boutons */
+  gap: 15px; /* Espacement entre les boutons */
 }
 
-.section2 img {
-  width: 90%;
-  margin-top: 10px;
-  margin-left: 20px;
+.animated-button {
+  padding: 10px 20px; /* Espacement intérieur */
+  font-size: 16px; /* Taille du texte */
+  background-color: var(--ColorFoot); /* Couleur de fond */
+  color: var(--ColorTitre); /* Couleur du texte */
+  border: none; /* Supprime les bordures */
+  border-radius: 15px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointeur */
+  transition: background-color 0.3s; /* Animation */
 }
 
-.sect2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
+.animated-button:hover {
+  background-color: var(--ColorTitre); /* Couleur au survol */
+  color: var(--ColorFoot);
 }
-
-.sect2 p {
-  margin: 0 34px;
-}
-/* =================================Espace entre main&Footer==================================== */
-
-.spacer {
-  width: 100%;
-  height: 40px;
-}
-.spacer1 {
-  width: 100%;
-  height: 30px;
-}
-
-/* =================================Footer=============================== */
 
 .foot {
   min-height: 90px;
@@ -114,78 +83,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 12px;
+  color: var(--ColorTitre);
 }
 
-/* =========================bouton Acceuil================================= */
-.animated-button {
-  display: inline-block;
-  padding: 12px 24px; /* Taille du bouton */
-  font-size: 16px; /* Taille du texte */
-  font-weight: bold; /* Texte en gras */
-  color: white; /* Couleur du texte */
-  background-color: var(--ColorTitre); /* Couleur de fond */
-  border: 2px solid var(--ColorTitre); /* Bordure initiale */
-  border-radius: 25px; /* Coins arrondis */
-  cursor: pointer; /* Change le curseur au survol */
-  transition: all 0.3s ease; /* Transition pour les animations */
-  position: relative; /* Nécessaire pour l'effet d'animation */
-  overflow: hidden; /* Empêche les débordements */
-}
-
-.animated-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* Couleur de survol */
-  transition: all 0.3s ease; /* Animation fluide */
-}
-
-.animated-button:hover::before {
-  left: 0; /* Fait glisser l'animation */
-}
-
-.animated-button:hover {
-  background-color: var(--ColotrTexte); /* Change la couleur de fond */
-  border-color: #0056b3; /* Change la couleur de bordure */
-}
-
-.animated-button:active {
-  transform: scale(0.95); /* Effet de clic */
-}
-
-@media screen and (max-width: 470px) {
-  .section2 {
-    display: flex;
-    flex-direction: column;
-  }
-  .section1 {
-    display: flex;
-    flex-direction: column;
-  }
-  .titlMain {
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-  .pMain {
-    font-size: 0.8rem;
-    margin-left: 20px;
-  }
-
-  .spacer3 {
-    width: 100%;
-    height: 20px;
-  }
-
-  .main {
-    min-height: 200px;
-  }
-  .animated-button {
-    padding: 8px 18px; /* Taille du bouton */
-    font-size: 12px; /* Taille du texte */
-    border: 1px solid var(--ColorTitre); /* Bordure initiale */
-    border-radius: 25px; /* Coins arrondis */
-  }
+/* Formater un texte */
+main p {
+  word-wrap: break-word; /* Casse les mots longs pour s'adapter à la largeur du conteneur */
+  overflow-wrap: break-word; /* Support moderne pour casser les mots */
+  hyphens: auto; /* Ajoute des traits d'union lors de la coupure (selon le navigateur) */
+  white-space: normal; /* Permet le retour à la ligne normal */
+  line-height: 1.5; /* Espacement entre les lignes pour une meilleure lisibilité */
+  text-align: justify; /* Justifie le texte pour une présentation plus propre */
 }

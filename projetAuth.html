@@ -12,72 +12,144 @@
     <link rel="stylesheet" href="./projetAuth.css" />
   </head>
   <body>
-    <main class="main">
-      <div class="container">
-        <div class="header">
-          <div class="iconAcceuil" id="IdiconAcceuil">
-            <i class="fa-solid fa-house"></i>
+    <div class="dii">
+      <div class="main1">
+        <div class="container1">
+          <div class="header1">
+            <div class="iconAcceuil1" id="IdiconAcceuil_1">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <h1>Identifiez-vous ici s'il vous plaît</h1>
           </div>
-          <h1>Identifiez-vous ici s'il vous plaît</h1>
+
+          <form action="" class="form1">
+            <div class="form-control1">
+              <label for="" id="lab4_1" style="padding-left: 0">Email</label>
+              <div class="play-inline" id="int4">
+                <input type="email" id="email_1" placeholder="Votre email" />
+              </div>
+            </div>
+
+            <div class="form-control1">
+              <label for="" id="lab5_1">Mot de passe</label>
+              <div class="play-inline" id="int5_1">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Votre mot de passe"
+                />
+              </div>
+            </div>
+
+            <div class="button-container3_1">
+              <a href="./projetInscri.html" class="btn3_1"
+                >Mot de passe oublié</a
+              >
+            </div>
+
+            <div class="button-container1_1">
+              <button type="submit" class="btn1_1">Valider</button>
+            </div>
+
+            <div class="button-container2_1">
+              <!-- <a href="" class="btn2_1">J'ai pas encore un compte</a> -->
+              <button type="button" class="btn2_1" id="btnInscrire">
+                J'ai pas encore un compte
+              </button>
+            </div>
+          </form>
         </div>
-
-        <form action="" class="form">
-          <div class="form-control">
-            <label for="" id="lab4" style="padding-left: 0">Email</label>
-            <div class="play-inline" id="int4">
-              <input type="email" id="email" placeholder="Votre email" />
-              <i class="fa-solid fa-circle-check erreu"></i>
-              <i class="fas fa-exclamation erreu"></i>
-              <small class="erreu">Message d'erreur</small>
-            </div>
-          </div>
-
-          <div class="form-control">
-            <label for="" id="lab5">Mot de passe</label>
-            <div class="play-inline" id="int5">
-              <input
-                type="password"
-                id="password"
-                placeholder="Votre mot de passe"
-              />
-              <i class="fa-solid fa-circle-check erreu"></i>
-              <i class="fas fa-exclamation erreu"></i>
-              <small class="erreu">Message d'erreur</small>
-            </div>
-          </div>
-
-          <div class="button-container3">
-            <a href="./projetInscri.html" class="btn3">Mot de passe oublié</a>
-          </div>
-
-          <div class="button-container1">
-            <button type="submit" class="btn1">Valider</button>
-          </div>
-
-          <div class="button-container2">
-            <a href="./projetInscri.html" class="btn2"
-              >J'ai pas encore un compte</a
-            >
-          </div>
-        </form>
       </div>
-    </main>
+    </div>
 
-    <!-- ===========================Espacement============================== -->
-    <!-- <div class="spacer"></div> -->
-    <!-- =================================Footer===============================  -->
+    <!-- ===================================================================== -->
 
-    <!-- <footer class="foot">
-      <h4>Besoin d'aide !</h4>
-      <p>Copyright@2025</p>
-      <div class="iconfooter">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-youtube"></i>
-        <i class="fa-brands fa-facebook-messenger"></i>
-        <i class="fa-brands fa-square-whatsapp"></i>
+    <div class="dii2">
+      <div class="main">
+        <div class="container">
+          <div class="header">
+            <div class="iconAcceuil" id="IdiconAcceuil">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <h1>Vous pouvez vous inscrire ici</h1>
+          </div>
+
+          <form action="" class="form">
+            <div class="form-control">
+              <label for="" id="lab1">Nom</label>
+              <div class="play-inline" id="int1">
+                <input type="text" id="name" placeholder="Votre nom" />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="" id="lab2">Prénom</label>
+              <div class="play-inline" id="int2">
+                <input type="text" id="prenom" placeholder="Votre Prénom" />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="" id="lab3">Date de naissance</label>
+              <div class="play-inline" id="int3">
+                <input
+                  type="date"
+                  id="date"
+                  placeholder="Votre date de naissance"
+                />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="" id="lab4" style="padding-left: 0">Email</label>
+              <div class="play-inline" id="int4">
+                <input type="email" id="email" placeholder="Votre email" />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="" id="lab5">Mot de passe</label>
+              <div class="play-inline" id="int5">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Votre mot de passe"
+                />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="" id="lab6">Confirmation</label>
+              <div class="play-inline" id="int6">
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  placeholder="Confirmer mot de passe"
+                />
+              </div>
+            </div>
+
+            <div class="caseOne">
+              <input type="checkbox" id="case1" name="" value="" />
+              <label for="">Se souvenir de moi</label><br />
+            </div>
+
+            <div class="button-container">
+              <button type="submit" class="btn">
+                <i class="fas fa-user-plus"></i> S'inscrire
+              </button>
+            </div>
+            <div class="button-container4">
+              <!-- <a href="" class="btn2">J'ai un compte</a> -->
+              <button type="button" class="btn2" id="btnConnecter">
+                J'ai un compte
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </footer> -->
+    </div>
+
     <script src="./projetAuth.js"></script>
   </body>
 </html>

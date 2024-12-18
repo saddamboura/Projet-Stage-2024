@@ -212,6 +212,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 12px;
+        color: var(--ColorTitre);
       }
 
       .tit1 {
@@ -230,7 +231,7 @@
         color: var(--ColorTitre);
       }
       .ctnt {
-        font-size: 24px;
+        font-size: 1rem;
         color: var(--ColorTitre);
       }
 
@@ -250,6 +251,11 @@
 
       .align {
         margin-bottom: 24px;
+      }
+
+      ul li {
+        margin-left: 40px;
+        color: var(--ColorTitre);
       }
 
       @media screen and (max-width: 470px) {
@@ -502,41 +508,55 @@
           <h2>Bienvenue dans le contenu FANOMANANA 1</h2>
 
           <p class="ctnt">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
-            doloribus veniam voluptatibus blanditiis accusamus esse autem quae
-            placeat? Rem exercitationem, voluptatibus nulla nobis aliquid id
-            iusto qui illum doloremque enim. Id ratione labore praesentium
-            recusandae molestiae, pariatur, facilis blanditiis alias repudiandae
-            suscipit et. Repudiandae quisquam magni tempore nesciunt error
-            similique eius est reiciendis, possimus cumque expedita soluta ea
-            mollitia at. Praesentium, cum aut accusamus magnam adipisci laborum.
-            Quisquam laboriosam expedita aperiam dignissimos temporibus eos sit
-            amet doloribus excepturi sunt? Error ducimus perferendis officiis
-            cumque ipsum iusto quod est repellat sequi. Non libero vitae vero
-            accusamus sit. Deserunt, qui assumenda. Illo dolores qui earum,
-            quasi, laudantium impedit ipsum maxime dolorem eum perferendis
-            suscipit, ea odit placeat quae voluptates ipsa fugiat facilis.
+            Ny Mpiandraikitra tsirairay dia hanao asa ahazoany fiofanana, ny
+            Filoha no manome izany, toy ny :
+          </p>
+          <ul>
+            <li>Mitady boky izy hovakiany,</li>
+            <li>
+              Asa toy ny famakiana tahirin-kevitra momba ny Tily, skoto sy izay
+              miresaka momba asa fanabeazana.
+            </li>
+            <li>
+              Manantona Zoky sy Raiamandreny efananao asa maha mpanabe tily,
+            </li>
+            <li>sns,</li>
+          </ul>
+          <p class="ctnt">
+            Izany dia atao araka ny fomba sy fotoana hitiavany azy. Ny
+            fanamarihana eto dia ny filazan’ilay mpiofana fa efa nanao ireo
+            zavatra notakiana taminy izy na amin’ny alalan’ny antontan-taratasy
+            na fanambarana ankitsim-po izany fa kosa voarakitra an-tsoratra
+            daholo. Ny Filoha no mamaritra ireo tahirin-kevitra ho vakina ka ny
+            fitina an’ireo no ho tsarain’ny TPTEM mba ho ekena ny
+            tetim-piofanana.
           </p>
         </div>
         <div id="content2" class="content-section2">
           <h2>Bienvenue dans le contenu FANENTERANA 1</h2>
           <p class="ctnt">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
-            doloribus veniam voluptatibus blanditiis accusamus esse autem quae
-            placeat? Rem exercitationem, voluptatibus nulla nobis aliquid id
-            iusto qui illum doloremque enim. Id ratione labore praesentium
-            recusandae molestiae, pariatur, facilis blanditiis alias repudiandae
-            suscipit et. Repudiandae quisquam magni tempore nesciunt error
-            similique eius est reiciendis, possimus cumque expedita soluta ea
-            mollitia at. Praesentium, cum aut accusamus magnam adipisci laborum.
-            Quisquam laboriosam expedita aperiam dignissimos temporibus eos sit
-            amet doloribus excepturi sunt? Error ducimus perferendis officiis
-            cumque ipsum iusto quod est repellat sequi. Non libero vitae vero
-            accusamus sit. Deserunt, qui assumenda. Illo dolores qui earum,
-            quasi, laudantium impedit ipsum maxime dolorem eum perferendis
-            suscipit, ea odit placeat quae voluptates ipsa fugiat facilis. Magni
-            assumenda sunt esse ad impedit, deleniti laudantium est iure ea
-            expedita similique.
+            Ny Mpiandraikitra tsirairay dia hanao asa ahazoany fiofanana, ny
+            Filoha no manome izany, toy ny :
+          </p>
+          <ul>
+            <li>Mitady boky izy hovakiany,</li>
+            <li>
+              Asa toy ny famakiana tahirin-kevitra momba ny Tily, skoto sy izay
+              miresaka momba asa fanabeazana.
+            </li>
+            <li>
+              Manantona Zoky sy Raiamandreny efananao asa maha mpanabe tily,
+            </li>
+            <li>sns,</li>
+          </ul>
+          <p class="ctnt">
+            Izany dia atao araka ny fomba sy fotoana hitiavany azy. Ny
+            fanamarihana eto dia ny filazan’ilay mpiofana fa efa nanao ireo
+            zavatra notakiana taminy izy na amin’ny alalan’ny antontan-taratasy
+            na fanambarana ankitsim-po izany fa kosa voarakitra an-tsoratra
+            daholo. Ny Filoha no mamaritra ireo tahirin-kevitra ho vakina ka ny
+            fitina an’ireo no ho tsarain’ny TPTEM mba ho ekena ny
+            tetim-piofanana.
           </p>
         </div>
       </div>
@@ -598,7 +618,8 @@
       }
 
       // Gestionnaire pour étendre le menu
-      expandMenu.addEventListener("click", () => {
+      expandMenu.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêcher le comportement par défaut
         menu1.classList.remove("collapsed");
         expandMenu.classList.add("hidden");
         collapseMenu.classList.remove("hidden");
@@ -606,7 +627,8 @@
       });
 
       // Gestionnaire pour réduire le menu
-      collapseMenu.addEventListener("click", () => {
+      collapseMenu.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêcher le comportement par défaut
         menu1.classList.add("collapsed");
         collapseMenu.classList.add("hidden");
         expandMenu.classList.remove("hidden");
@@ -626,14 +648,16 @@
       const fano = document.querySelector(".men");
       const fanen = document.querySelector(".men1");
 
-      bt1.addEventListener("click", () => {
+      bt1.addEventListener("click", (event) => {
+        event.preventDefault();
         fanomanana.style.visibility = "visible";
         fanenterana.style.visibility = "hidden";
 
         fanen.style.visibility = "hidden";
         fano.style.visibility = "visible";
       });
-      bt2.addEventListener("click", () => {
+      bt2.addEventListener("click", (event) => {
+        event.preventDefault();
         fanenterana.style.visibility = "visible";
         fanomanana.style.visibility = "hidden";
 

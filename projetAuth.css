@@ -22,10 +22,168 @@
 }
 
 body {
-  background: url(./assets/images/yourTwo.jfif) center/cover;
+  background: var(--ColorFont);
   width: 100%;
   min-height: 100vh;
 }
+
+.main1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header1 h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--ColorTitre);
+}
+.header1 {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 20px 20px 0 0;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAcceuil1 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.container1 {
+  border-radius: 16px;
+  width: 700px;
+  max-width: 100%;
+  margin: 100px 0;
+}
+
+.form1 {
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px 20px;
+  align-items: center;
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.form-control1 {
+  display: contents;
+}
+
+.form-control1 label {
+  justify-self: left;
+  text-align: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 2px solid var(--ColorFoot);
+  border-radius: 16px;
+  padding: 5px 10px;
+  width: 100%;
+  height: 45px;
+}
+
+.button-container1_1 {
+  grid-column: 3/1; /* Prend toute la largeur de la grille */
+  display: flex;
+  justify-content: center; /* Aligne le bouton à gauche */
+  width: 100%;
+}
+.btn1_1 {
+  color: var(--ColorTitre);
+  background: var(--ColorFoot);
+  height: 40px;
+  width: 160px;
+  border: 16px;
+  font-size: 24px;
+  border-radius: 16px;
+}
+
+.button-container1_1 .btn1_1:hover {
+  background-color: var(--ColotrTexte);
+}
+
+.button-container2_1 {
+  grid-column: span 2; /* Prend toute la largeur de la grille */
+  display: flex;
+  justify-content: center; /* Aligne le bouton à droite */
+  text-align: center; /* Centre le bouton dans le conteneur, si nécessaire */
+}
+.button-container3_1 {
+  grid-column: span 2; /* Prend toute la largeur de la grille */
+  display: flex;
+  justify-content: flex-end; /* Aligne le bouton à droite */
+  text-align: center; /* Centre le bouton dans le conteneur, si nécessaire */
+}
+.btn2_1 {
+  color: var(--ColorTitre);
+  font-size: 20px;
+  border: none;
+  background: none;
+}
+
+.button-container2_1 .btn2_1 {
+  display: inline-block;
+  padding: 10px 20px;
+  /* background-color: var(--ColorFoot); */
+  text-decoration: none;
+  border-radius: 16px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn3_1 {
+  text-decoration: none;
+}
+
+.erreu {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 470px) {
+  .form1 {
+    display: grid;
+    /* gap: 20px 10px; */
+    padding: 0 20px 20px 20px;
+    border-radius: 0 0 20px 20px;
+  }
+  .header1 h1 {
+    font-size: 1rem;
+  }
+  .header1 {
+    border-radius: 20px 20px 0 0;
+  }
+  .btn2_1 {
+    width: 212px;
+  }
+  .main1 {
+    min-height: 100vh;
+    margin: 0 24px 0 24px;
+  }
+  .button-container2_1 {
+    padding-left: 0;
+  }
+  .button-container1_1 {
+    grid-column: 3 / 1;
+  }
+  .btn1_1 {
+    width: 150px;
+  }
+}
+/* ======================================= */
 
 .main {
   margin: 0;
@@ -38,16 +196,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--ColorTitre);
 }
-.header {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border-radius: 20px 20px 0 0;
-}
+
 .iconAcceuil {
   position: absolute;
   top: 10px;
@@ -58,6 +210,7 @@ body {
   border-radius: 16px;
   width: 700px;
   max-width: 100%;
+  min-height: 500px;
   margin: 100px 0;
 }
 
@@ -78,93 +231,105 @@ body {
 .form-control label {
   justify-self: left;
   text-align: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
+.play-inline {
+  display: block;
+}
+
+.play-inline input,
+.play-inline i,
+.play-inline small {
+  display: inline-block;
+  margin-bottom: 1px; /* Espace entre les éléments */
+}
+
+.play-inline input {
+  width: 100%;
+}
+
+.caseOne {
+  grid-column: 3 / 1;
+  display: flex;
+}
+
+.caseOne input {
+  margin-right: 10px; /* Espace entre la case et le label */
+}
+
+input[type="text"],
+input[type="date"],
 input[type="email"],
 input[type="password"] {
   border: 2px solid var(--ColorFoot);
   border-radius: 16px;
   padding: 5px 10px;
   width: 100%;
-  height: 45px;
+  height: 40px;
 }
 
-.button-container1 {
-  grid-column: 3/1; /* Prend toute la largeur de la grille */
+.button-container {
+  grid-column: span 2; /* Prend toute la largeur de la grille */
   display: flex;
-  justify-content: center; /* Aligne le bouton à gauche */
-  width: 100%;
+  justify-content: center;
 }
-.btn1 {
+.button-container4 {
+  grid-column: span 2; /* Prend toute la largeur de la grille */
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn {
   color: var(--ColorTitre);
   background: var(--ColorFoot);
-  height: 40px;
-  width: 160px;
+  height: 35px;
+  width: 200px;
   border: 16px;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 16px;
 }
+.btn2 {
+  border: none;
+  background: none;
+}
 
-.button-container1 .btn1:hover {
+.button-container .btn:hover {
   background-color: var(--ColotrTexte);
 }
 
-.button-container2 {
-  grid-column: span 2; /* Prend toute la largeur de la grille */
-  display: flex;
-  justify-content: center; /* Aligne le bouton à droite */
-  text-align: center; /* Centre le bouton dans le conteneur, si nécessaire */
-}
-.button-container3 {
-  grid-column: span 2; /* Prend toute la largeur de la grille */
-  display: flex;
-  justify-content: flex-end; /* Aligne le bouton à droite */
-  text-align: center; /* Centre le bouton dans le conteneur, si nécessaire */
-}
-.btn2 {
-  color: var(--ColorTitre);
-  /* background: var(--ColorFoot); */
-  /* height: 40px;
-  width: 230px;
-  border: 16px; */
-  font-size: 20px;
-  /* border-radius: 16px; */
-}
-
-.button-container2 .btn2 {
-  display: inline-block;
-  padding: 10px 20px;
-  /* background-color: var(--ColorFoot); */
-  text-decoration: none;
-  border-radius: 16px;
-  font-size: 16px;
-  text-align: center;
-}
-
-.btn3 {
-  text-decoration: none;
-}
-
 .header {
-  height: 10rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  flex-direction: column;
+  position: relative;
+  border-radius: 20px 20px 0 0;
 }
 
 .erreu {
   visibility: hidden;
 }
 
+.dii,
+.dii2 {
+  display: none;
+}
+
+.dii {
+  display: block;
+}
+
 @media screen and (max-width: 470px) {
   .form {
     display: grid;
-    /* gap: 20px 10px; */
+    gap: 10px;
     padding: 0 20px 20px 20px;
     border-radius: 0 0 20px 20px;
+    /* grid-template-columns: 0; */
   }
   .header h1 {
     font-size: 1rem;
@@ -172,23 +337,25 @@ input[type="password"] {
   .header {
     border-radius: 20px 20px 0 0;
   }
-  .btn2 {
-    width: 212px;
-  }
-  /* .container {
-    min-height: 48rem;
-  } */
+
   .main {
     min-height: 100vh;
     margin: 0 24px 0 24px;
   }
-  .button-container2 {
-    padding-left: 0;
+  .caseOne input {
+    margin-right: 0;
   }
-  .button-container1 {
-    grid-column: 3 / 1;
+
+  .caseOne {
+    grid-column: 3/1;
+    gap: 10px;
   }
-  .btn1 {
-    width: 150px;
+
+  .button-container4 {
+    margin-top: 20px;
+  }
+
+  .btn3 {
+    margin-top: 0;
   }
 }
